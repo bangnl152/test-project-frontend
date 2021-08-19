@@ -14,7 +14,7 @@ const password = randomstring.generate();
 
 describe("Signup action", () => {
 	it("signup success", async () => {
-		const store = mockStore({ auth: {} });
+		const store = mockStore({});
 		const expectedActions = [
 			{ type: SIGNUP_LOADING },
 			{ type: SIGNUP_SUCCESS },
@@ -26,8 +26,8 @@ describe("Signup action", () => {
 		);
 	});
 
-	it("login failed", async () => {
-		const store = mockStore({ auth: {} });
+	it("signup failed", async () => {
+		const store = mockStore({});
 		const expectedActions = [{ type: SIGNUP_LOADING }, { type: SIGNUP_ERROR }];
 
 		await store.dispatch(signUp(username, password));

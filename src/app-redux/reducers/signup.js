@@ -9,9 +9,14 @@ const initState = {
 export function signUpReducer(state = initState, action) {
 	switch (action.type) {
 		case SIGNUP_LOADING:
-			return { ...state, loading: true, error: null };
+			return { ...state, loading: true, error: null, success: false };
 		case SIGNUP_ERROR:
-			return { ...state, loading: false, error: action.payload };
+			return {
+				...state,
+				loading: false,
+				error: action.payload,
+				success: false,
+			};
 		case SIGNUP_SUCCESS:
 			return {
 				...state,
