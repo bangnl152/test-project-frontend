@@ -26,6 +26,17 @@ describe("Signup action", () => {
 		);
 	});
 
+	it("signup failed with incorrect length", async () => {
+		const store = mockStore({});
+		const expectedActions = [{ type: SIGNUP_ERROR }];
+
+		await store.dispatch(signUp("123", "456"));
+		expect(store.getActions().map((a) => a.type)).toEqual(
+			expectedActions.map((a) => a.type)
+		);
+		expect(typeof store.getActions()[0].payload).toBe("string");
+	});
+
 	it("signup failed", async () => {
 		const store = mockStore({});
 		const expectedActions = [{ type: SIGNUP_LOADING }, { type: SIGNUP_ERROR }];

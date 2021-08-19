@@ -1,4 +1,9 @@
-import { SIGNUP_ERROR, SIGNUP_LOADING, SIGNUP_SUCCESS } from "../types/signup";
+import {
+	SIGNUP_ERROR,
+	SIGNUP_INIT,
+	SIGNUP_LOADING,
+	SIGNUP_SUCCESS,
+} from "../types/signup";
 
 const initState = {
 	loading: false,
@@ -24,6 +29,8 @@ export function signUpReducer(state = initState, action) {
 				error: null,
 				success: true,
 			};
+		case SIGNUP_INIT:
+			return initState;
 		default:
 			return state;
 	}
