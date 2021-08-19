@@ -1,5 +1,3 @@
-import { AnyAction } from "redux";
-import { ThunkDispatch } from "redux-thunk";
 import Cookies from "js-cookie";
 import { AuthApi } from "../../api";
 import {
