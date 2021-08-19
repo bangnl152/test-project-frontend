@@ -1,4 +1,3 @@
-import Cookies from "js-cookie";
 import { AuthApi } from "../../api";
 import { SIGNUP_ERROR, SIGNUP_LOADING, SIGNUP_SUCCESS } from "../types/signup";
 

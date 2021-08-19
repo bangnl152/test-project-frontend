@@ -14,7 +14,7 @@ const mockStore = createMockStore(middleware);
 
 describe("Auth action", () => {
 	it("login success", async () => {
-		const store = mockStore({ auth: {} });
+		const store = mockStore({});
 		const username = "bang11";
 		const password = "abc123456";
 		const expectedActions = [{ type: AUTH_LOADING }, { type: AUTH_SUCCESS }];
@@ -28,7 +28,7 @@ describe("Auth action", () => {
 	});
 
 	it("login failed", async () => {
-		const store = mockStore({ auth: {} });
+		const store = mockStore({});
 		const username = "bang11";
 		const password = "abc";
 		const expectedActions = [{ type: AUTH_LOADING }, { type: AUTH_ERROR }];
