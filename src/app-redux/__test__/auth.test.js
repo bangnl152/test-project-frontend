@@ -15,8 +15,8 @@ const mockStore = createMockStore(middleware);
 describe("Auth action", () => {
 	it("login success", async () => {
 		const store = mockStore({});
-		const username = "bang11";
-		const password = "abc123456";
+		const username = "bang123456";
+		const password = "1234567";
 		const expectedActions = [{ type: AUTH_LOADING }, { type: AUTH_SUCCESS }];
 
 		await store.dispatch(login(username, password));
