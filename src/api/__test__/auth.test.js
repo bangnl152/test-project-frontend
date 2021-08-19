@@ -19,6 +19,18 @@ const createUserData = [
 	["username and password incorrect type", 123, false, 400],
 ];
 
+const loginUserData = [
+	["happy case", username, password, 200],
+	["wrong password", username, "abc", 403],
+	["without password", username, null, 400],
+	["without username", null, password, 400],
+	["without username and password", null, null, 400],
+	["empty username and password", "", "", 400],
+	["username incorrect type", 123, password, 400],
+	["password incorrect type", username, true, 400],
+	["username and password incorrect type", 123, false, 400],
+];
+
 describe("POST /users - Sign Up", () => {
 	for (const [title, username, password, status] of createUserData) {
 		it(title, async () => {
@@ -32,11 +44,14 @@ describe("POST /users - Sign Up", () => {
 	}
 });
 describe("POST /login - Login User", function () {
-	// it("happy case");
-	// it("wrong password");
-	// it("without username");
-	// it("without password");
-	// it("without username and password");
-	// it("incorrect type");
-	// it("send String instead of Json");
+	for (const [title, username, password, status] of loginUserData) {
+		it(title, async () => {
+			try {
+				const result = await AuthApi.login(username, password);
+				expect(result).toHaveProperty("token");
+			} catch (err) {
+				expect(err.status).toEqual(status);
+			}
+		});
+	}
 });
