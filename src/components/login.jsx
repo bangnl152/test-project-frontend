@@ -46,7 +46,7 @@ export default function Login() {
 							dispatch(login(username, password));
 						}}
 					>
-						Sign Up
+						Login
 					</button>
 				</form>
 			)}
